@@ -6,7 +6,7 @@
 #    By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 16:15:26 by rphuyal           #+#    #+#              #
-#    Updated: 2022/12/29 19:44:44 by rphuyal          ###   ########.fr        #
+#    Updated: 2023/04/24 00:01:01 by rphuyal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,19 +67,19 @@ SRC    = strings/ft_atoi.c \
 		t_list/ft_lstmap.c \
 		gnl/get_next_line.c \
 		gnl/get_next_line_utils.c \
-		
-OBJ = $(SRC:.c=.o)
 
+OBJ = $(SRC:.c=.o)
 
 all:	$(NAME)
 
 $(NAME):    $(OBJ)
-		ar rcs $(NAME) $(OBJ)
-		
+		@ar rcs $(NAME) $(OBJ)
+
 clean:
-		$(RM) $(OBJ)
+		@$(RM) $(OBJ)
+		@rm -rf obj
 
 fclean:    clean
-		$(RM) $(NAME)
+		@$(RM) $(NAME)
 
 re:	fclean $(NAME)

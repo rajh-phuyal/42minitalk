@@ -6,7 +6,7 @@
 /*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 16:15:19 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/29 19:44:18 by rphuyal          ###   ########.fr       */
+/*   Updated: 2023/04/23 23:49:20 by rphuyal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 # include <fcntl.h>
 # include <stdbool.h>
 
-/* 
-structure for nodes to contain a content pointer 
+/*
+structure for nodes to contain a content pointer
 an a link to the next node
 */
 typedef struct s_list
@@ -93,7 +93,6 @@ t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-
 /* prototypes for printf */
 int		ft_putcharprintf(char c);
 int		get_hex_len(unsigned long long n);
@@ -110,4 +109,4 @@ int		create_line(char **line_ptr, char *buffer, size_t size);
 int		manage_buffer(char *buffer);
 char	*get_next_line(int fd);
 
-#endif 
+#endif

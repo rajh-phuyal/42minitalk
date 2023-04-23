@@ -6,7 +6,7 @@
 /*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 18:22:43 by rphuyal           #+#    #+#             */
-/*   Updated: 2022/12/29 19:43:35 by rphuyal          ###   ########.fr       */
+/*   Updated: 2023/04/23 23:49:42 by rphuyal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args_ptr);
 	return (flenght);
 }
-

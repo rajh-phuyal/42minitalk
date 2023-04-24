@@ -6,7 +6,7 @@
 /*   By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/23 14:15:49 by rphuyal           #+#    #+#             */
-/*   Updated: 2023/04/24 00:54:11 by rphuyal          ###   ########.fr       */
+/*   Updated: 2023/04/24 15:36:46 by rphuyal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	send_message(pid_t server_pid, char *message)
 	ft_printf("\033[94mWaiting for server responce!\033[0m\n");
 	sleep(wait_time / 100);
 	ft_printf("\033[91mServer didn't respond in time 🕒!\n");
-	ft_printf("Make sure the server pid you entered is correct!\033[0m\n");
+	ft_printf("Make sure the server is up and running!\033[0m\n");
 	exit(0);
 }
 
@@ -60,9 +60,9 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	server_pid = ft_atoi(argv[1]);
-	if (ft_strlen(ft_itoa(server_pid)) < ft_strlen(argv[1]))
+	if (kill(server_pid, 0) == -1)
 		return (ft_printf("\033[91mInvalid Server PID!\n\033[0m") - 29);
 	signal(SIGUSR1, server_response);
-	ft_printf("Sending From process: %d\n", getpid());
+	ft_printf("Sending From Client process: %d\n", getpid());
 	send_message(server_pid, argv[2]);
 }

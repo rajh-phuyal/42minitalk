@@ -6,7 +6,7 @@
 #    By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/23 20:15:08 by rphuyal           #+#    #+#              #
-#    Updated: 2023/04/23 23:59:03 by rphuyal          ###   ########.fr        #
+#    Updated: 2023/04/24 17:33:32 by rphuyal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,13 +44,13 @@ obj:
 	@echo "$(GREEN)Created Objects dir!$(RESET)"
 
 libft:
-	@make -C libft
+	@make -sC libft
 	@echo "$(GREEN)Created libft library!$(RESET)"
 
 clean:
 	@rm -f $(OBJ)
 	@echo "$(GREEN)Cleaned objects!$(RESET)"
-	@make -C libft clean
+	@make -sC libft clean
 	@echo "$(GREEN)Cleaned libft objects!$(RESET)"
 
 fclean: clean

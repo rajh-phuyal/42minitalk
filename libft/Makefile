@@ -6,13 +6,13 @@
 #    By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/02 16:15:26 by rphuyal           #+#    #+#              #
-#    Updated: 2023/04/24 00:01:01 by rphuyal          ###   ########.fr        #
+#    Updated: 2023/04/24 17:01:50 by rphuyal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-CC = gcc
+CC = @gcc
 
 CFLAGS = -Wall -Wextra -Werror -I .
 

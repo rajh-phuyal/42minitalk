@@ -6,14 +6,17 @@
 #    By: rphuyal <rphuyal@student.42lisboa.com>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/23 20:15:08 by rphuyal           #+#    #+#              #
-#    Updated: 2023/04/24 17:33:32 by rphuyal          ###   ########.fr        #
+#    Updated: 2023/07/25 22:43:40 by rphuyal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#color scheme
-RED = $(shell tput setaf 1)
-GREEN = $(shell tput setaf 2)
-RESET = $(shell tput sgr0)
+# COLORS
+CBOLD   = \033[0;1m
+RED     = \033[0;41m
+GREEN   = \033[0;42m
+BLUE   = \033[0;44m
+YELLOW  = \033[0;43m
+RESET   = \033[0m
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
@@ -24,6 +27,8 @@ OBJ = $(patsubst src/%.c,obj/%.o,$(SRC))
 # Add a dependency on the obj target to ensure that the obj directory exists
 # before any object files are created
 all: obj server client
+	@echo "$(CBOLD)$(GREEN)    SERVER READY!   $(RESET)"
+	@echo "$(CBOLD)$(GREEN)    CLIENT READY!   $(RESET)"
 
 # Same as all
 bonus: obj server client
@@ -41,20 +46,21 @@ obj/%.o: src/%.c | obj
 # Create obj directory if it doesn't exist
 obj:
 	@mkdir -p obj
-	@echo "$(GREEN)Created Objects dir!$(RESET)"
 
 libft:
-	@make -sC libft
-	@echo "$(GREEN)Created libft library!$(RESET)"
+	@echo "$(CBOLD)$(YELLOW)  Compiling Libft   $(RESET)"
+	@make -sC ./libft
+	@echo "$(CBOLD)$(GREEN)    Libft ready!    $(RESET)\n ↪"
 
 clean:
-	@rm -f $(OBJ)
-	@echo "$(GREEN)Cleaned objects!$(RESET)"
 	@make -sC libft clean
-	@echo "$(GREEN)Cleaned libft objects!$(RESET)"
+	@rm -rf $(OBJ) obj
+	@echo "$(CBOLD)$(BLUE)  Objects removed!  $(RESET)"
 
 fclean: clean
+	@make -sC libft fclean
 	@rm -rf obj server client libft/libft.a
+	@echo "$(CBOLD)$(BLUE)  Binaries removed! $(RESET)"
 
 re: fclean all
 
